@@ -1,0 +1,20 @@
+{
+	"name": "alex-unruh/repository",
+	"description": "An abstraction layer built on Doctrine DBAL Query Builder",
+	"homepage": "https://github.com/alex-unruh/repository",
+	"type": "library",
+	"keywords": ["repository", "query",	"builder",	"doctrine",	"dbal"],
+	"license": "MIT",
+	"authors": [
+		{"name": "Alexandre Unruh",	"email": "alexandre@unruh.com.br"}
+	],
+	"require": {
+		"doctrine/dbal": "^3.3",
+		"php": "^7.2"
+	},
+	"autoload": {
+		"psr-4": {
+			"AlexUnruh\\Repository\\": "src/"
+		}
+	}
+}
