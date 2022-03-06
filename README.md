@@ -232,7 +232,7 @@ class MyRepo extends Repository
 
 // index.php
 $repo = new MyRepo($connection_params);
-$repo->lockRecord();
+$repo->lockRecord(1);
 ```
 ## Methods available to be used only in extended classes: read, create, modify and remove.
 All the methods described bellow neede to be used in clases that extends the Repositor::class because they use parameters defined in this classes, as $table_name or $data_types, for example.
