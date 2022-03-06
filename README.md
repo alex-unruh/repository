@@ -88,7 +88,7 @@ $repo->select('*')->from('users')->get();
  ]
 */
 ```
-### getFisrt()
+### getFirst()
 
 Used in final of a select statement to return only the first result of a query
 ```php
