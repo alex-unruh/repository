@@ -1,7 +1,7 @@
 # Alex Unruh - Repository
 
 
-This is an abstraction layer that extends [Doctrine DBAL Query Builder]('https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/query-builder.html#sql-query-builder) with methods to help and reduce the amount of code for bind values, for example.
+This is an abstraction layer that extends [Doctrine DBAL Query Builder]('https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/query-builder.html#sql-query-builder') with methods to help and reduce the amount of code for bind values, for example.
 
 ## Installation:
 ```
