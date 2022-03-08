@@ -276,7 +276,7 @@ Behind the scenes, repository::class wiil make the safely bind values using the 
 ```php
 //index.php 
 $user = new UserRepo($connection_params);
-$user->modify(['name' => 'Foo', 'email' => 'foo@bar.com', 'pass' => $encripted_pass])->where('id = ?')->setParameter('id', $id)->execute();
+$user->modify(['name' => 'Foo', 'email' => 'foo@bar.com', 'pass' => $encripted_pass])->where('id = :id')->setParameter('id', $id)->execute();
 ```
 ### destroy( string $table_alias = null ): Repository
 - @param string $table_alias = A table alias to be used in join statements (optional)
