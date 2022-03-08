@@ -1,6 +1,6 @@
 <?php
 
-namespace AlexUnruh\Repository;
+namespace AlexUnruh;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;

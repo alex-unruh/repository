@@ -27,7 +27,7 @@ Now let's see the same query with a bit of abstraction using Repository::class
 
 ```php
 // index.php
-use AlexUnruh\Repository\Repository
+use AlexUnruh\Repository;
 
 $repo = new Repository($connection_params);
 $repo->insert('city')
@@ -45,7 +45,7 @@ If you need to use the same coonection in multiple queries, like a transaction, 
 ```php
 //index.php
 
-use AlexUnruh\Repository\Repository
+use AlexUnruh\Repository;
 
 $conn = DriverManager::getConnection($connection_params);
 $conn->transactional({
@@ -65,7 +65,7 @@ $conn->transactional({
 Used in final of a select statement to return a multidimensional array
 ```php
 // index.php
-use AlexUnruh\Repository\Repository;
+use AlexUnruh\Repository;
 
 $repo = new Repository($connection_params);
 $repo->select('*')->from('users')->get();
@@ -93,7 +93,7 @@ $repo->select('*')->from('users')->get();
 Used in final of a select statement to return only the first result of a query
 ```php
 // index.php
-use AlexUnruh\Repository\Repository;
+use AlexUnruh\Repository;
 
 $repo = new Repository($connection_params);
 $repo->select('*')->from('users')->getFirst();
@@ -112,7 +112,7 @@ $repo->select('*')->from('users')->getFirst();
 - @param array $array_data = An array containing pairs of key => value to be inserted in the table
 ```php
 // index.php
-use AlexUnruh\Repository\Repository;
+use AlexUnruh\Repository;
 
 $repo = new Repository($connection_params);
 $repo->insert('users')->addValues(['name' => 'Foo', 'email' => 'foo@bar.com', 'pass' => $encripted_pass])->execute();
@@ -121,7 +121,7 @@ $repo->insert('users')->addValues(['name' => 'Foo', 'email' => 'foo@bar.com', 'p
 - @param array $array_data = An array containing pairs of key => value to be updated in the table
 ```php
 // index.php
-use AlexUnruh\Repository\Repository;
+use AlexUnruh\Repository;
 
 $repo = new Repository($connection_params);
 $repo->update('users')->setValues(['name' => 'Foo', 'email' => 'foo@bar.com', 'pass' => $encripted_pass])->execute();
@@ -130,7 +130,7 @@ $repo->update('users')->setValues(['name' => 'Foo', 'email' => 'foo@bar.com', 'p
 The execute method is responsible to make the safely bind params in insert, update and delete statements and return as the result the number of rows affected. It calls the setParameters() and executeStatement() methods by Doctrine DBAL parent class. 
 ```php
 // index.php 
-use AlexUnruh\Repository\Repository;
+use AlexUnruh\Repository;
 
 $repo = new Repository($connection_params);
 $repo->update('users')->setvalues(['name' => 'New Name'])->execute();
@@ -167,7 +167,7 @@ $query_builder->insert('posts')
   Now, let's see with Repository::class
   ```php
 // index.php 
-use AlexUnruh\Repository\Repository;
+use AlexUnruh\Repository;
 
 $repo = new Repository($connection_params);
 $repo->setTypes(['name' => 'string', 'slug' => 'string', 'author_id' => 'string', 'image' => 'blob']);
@@ -187,7 +187,7 @@ Another parameter that can be implemented in an inheritor class is $data_types w
 Don't waste time trying to understand the method below. While it works, it's just here to demonstrate a Repository pattern use case. 
 ```php
 // MyRepo.php
-use AlexUnruh\Repository\Repository;
+use AlexUnruh\Repository;
 
 class MyRepo extends Repository
 {

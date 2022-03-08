@@ -14,7 +14,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"AlexUnruh\\Repository\\": "src/"
+			"AlexUnruh\\": "src/"
 		}
 	}
 }
