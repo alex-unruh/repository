@@ -289,6 +289,7 @@ $user->destroy()->where('id = :id')->setParameter('id', $id, 'integer')->execute
 - @param string $key  = Parameter key
 - @param string $val  = Parameter value
 - @param string $type = Parameter type
+
 This method is recomended to be used when you use the method modify and you need to add new parameters to bind in other clauses (like where clauses). 
 ```php
 // index.php
