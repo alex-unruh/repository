@@ -276,7 +276,7 @@ Behind the scenes, repository::class wiil make the safely bind values using the 
 ```php
 //index.php 
 $user = new UserRepo($connection_params);
-$user->modify(['name' => 'Foo', 'email' => 'foo@bar.com', 'pass' => $encripted_pass])->where('id = :id')->setParameter('id', $id)->execute();
+$user->modify(['name' => 'Foo', 'email' => 'foo@bar.com', 'pass' => $encripted_pass])->where('id = :id')->addParameter('id', $id)->execute();
 ```
 ### destroy( string $table_alias = null ): Repository
 - @param string $table_alias = A table alias to be used in join statements (optional)
@@ -284,5 +284,15 @@ $user->modify(['name' => 'Foo', 'email' => 'foo@bar.com', 'pass' => $encripted_p
 // index.php
 $user = new UserRepo($connection_params);
 $user->destroy()->where('id = :id')->setParameter('id', $id, 'integer')->execute();
+```
+### addParameter(string $key, string $val, string $type = null): Repository
+- @param string $key  = Parameter key
+- @param string $val  = Parameter value
+- @param string $type = Parameter type
+This method is recomended to be used when you use the method modify and you need to add new parameters to bind in other clauses (like where clauses). 
+```php
+// index.php
+$user = new UserRepo($connection_params);
+$user->modify(['name' => 'Foo', 'email' => 'foo@bar.com', 'pass' => $encripted_pass])->where('id = :id')->addParameter('id', $id)->execute();
 ```
 Enjoy.

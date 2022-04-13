@@ -95,12 +95,16 @@ class Repository extends QueryBuilder
 	/**
 	 * Must be used to execute a statement initialized by update or delete methods
 	 *
+	 * @param boolean $with_statement keep true to use executeStatement, false to use executeQuery
 	 * @return integer
 	 */
-	public function execute(): int
+	public function execute(bool $with_statement = true): int
 	{
-		$this->setParameters($this->statement_params, $this->data_types);
-		$result = $this->executeStatement();
+		if (count($this->statement_params) > 0) {
+			$this->setParameters($this->statement_params, $this->data_types);
+		}
+
+		$result = $with_statement ? $this->executeStatement() : $this->executeQuery();
 		return $result;
 	}
 
@@ -149,6 +153,22 @@ class Repository extends QueryBuilder
 			$value = $use_colon ? ":{$key}" : "?";
 			$this->set($key, $value);
 		}
+		return $this;
+	}
+
+	/**
+	 * Undocumented function
+	 *
+	 * @param string $key
+	 * @param string $val
+	 * @param string|null $type
+	 * @return Repository
+	 */
+	public function addParameter(string $key, string $val, string $type = null): Repository
+	{
+		$this->setParameter($key, $val, $type);
+		$this->statement_params[$key] = $val;
+		if ($type) $this->data_types[$key] = $type;
 		return $this;
 	}
 
